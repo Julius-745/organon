@@ -182,7 +182,7 @@ function handleImageError() {
             value="200 Users"
             description="Total Active User that manage letter"
             status="Peningkatan"
-            :isIncrease="true"
+            :isIncrease="false"
         />
     </div>
 </template>
