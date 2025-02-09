@@ -181,16 +181,30 @@ function handleImageError() {
             title="Total Users"
             value="200 Users"
             description="Total Active User that manage letter"
-            status="Peningkatan"
-            :isIncrease="false"
+            :status="'penurunan'"
+            :isIncrease="status"
         />
     </div>
 </template>
 
 <script>
 import CardComponent from "@/Components/CardComponent.vue";
+import { ref } from "vue";
 
 export default {
+    setup(){
+        const status = ref(true);
+
+        console.log("pre", status)
+        return {
+            status,
+        }
+    },
+    methods: {
+        changeLanguage(lang){
+            this.$i18n.locale = lang
+        }
+    },
     components: {
         CardComponent,
     },

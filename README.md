@@ -25,3 +25,10 @@ The optional features can be toggled in [jetstream.php](./config/jetstream.php)
 
 \* Custom and WIP.
 
+
+
+# How To Run Project
+- php artisan generate:key
+- pnpm install
+- pnpm dev
+
