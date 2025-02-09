@@ -173,4 +173,40 @@ function handleImageError() {
             </div>
         </div>
     </div>
+    
+
+
+    <div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <CardComponent
+            title="Total Users"
+            value="200 Users"
+            description="Total Active User that manage letter"
+            :status="'penurunan'"
+            :isIncrease="status"
+        />
+    </div>
 </template>
+
+<script>
+import CardComponent from "@/Components/CardComponent.vue";
+import { ref } from "vue";
+
+export default {
+    setup(){
+        const status = ref(true);
+
+        console.log("pre", status)
+        return {
+            status,
+        }
+    },
+    methods: {
+        changeLanguage(lang){
+            this.$i18n.locale = lang
+        }
+    },
+    components: {
+        CardComponent,
+    },
+};
+</script>
