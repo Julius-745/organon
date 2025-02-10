@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
+import bcrypt from "bcryptjs"
 
 defineProps({
     canResetPassword: Boolean,
@@ -14,8 +15,10 @@ const form = useForm({
 });
 
 const submit = () => {
+    const hashedPw = bcrypt.hash(form.password)
     form.transform(data => ({
         ...data,
+        password: hashedPw,
         remember: form.remember ? 'on' : '',
     })).post(route('login'), {
         onFinish: () => form.reset('password'),
